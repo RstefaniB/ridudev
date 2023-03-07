@@ -3,19 +3,24 @@ import './app.css'
 export function App() {
     return (
 
-        <article>
+        <article className='tw-followCard'>
 
-            <header>
-                <img src="https://unavatar.io/rebecaferguson"></img>
-                <div>
+            <header className='tw-followCard-header'>
+                <img
+                    className='tw-followCard-avatar'
+                    src="https://unavatar.io/rebecaferguson">
+                </img>
+                <div className='tw-followCard-info'>
                     <strong>Rebeca Ferguson</strong>
-                    <span>@rebecaferguson</span>
+                    <span className='.tw-followCard-infoUserName'>@rebecaferguson</span>
                 </div>
             </header>
             <aside>
-                <button>seguir</button>
+                <button className='tw-followCard-button '>seguir</button>
             </aside>
         </article>
+
+
     )
 }
 
