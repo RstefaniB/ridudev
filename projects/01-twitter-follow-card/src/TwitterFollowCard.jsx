@@ -1,8 +1,18 @@
 import { email } from "../utils/email"
 import { normalizedText } from "../utils/toUpperCase"
+import { useState } from "react"
 
 
 export function TwitterFollowCard({ name, username = 'unknown', isFollowing, formatUserName, children }) {
+
+    const state = useState(false)
+    isFollowing = state[0]
+    const setIsFollowing = state[1]
+
+    const handleClick = () => {
+        setIsFollowing(!isFollowing)
+    }
+
     const text = isFollowing ? 'siguiendo' : 'seguir'
     const buttonClassName = isFollowing ? 'tw-followCard-button is-following' : 'tw-followCard-button'
     const imgSrc = `https://unavatar.io/${username}`
@@ -25,7 +35,7 @@ export function TwitterFollowCard({ name, username = 'unknown', isFollowing, for
                 </div>
             </header>
             <aside>
-                <button className={buttonClassName}>{text}</button>
+                <button className={buttonClassName} onClick={handleClick}>{text}</button>
             </aside>
         </article>
 
