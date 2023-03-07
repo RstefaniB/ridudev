@@ -3,10 +3,10 @@ import { normalizedText } from "../utils/toUpperCase"
 import { useState } from "react"
 
 
-export function TwitterFollowCard({ name, username = 'unknown', isFollowing, formatUserName, children }) {
+export function TwitterFollowCard({ name, username = 'unknown', formatUserName, children }) {
 
-    const state = useState(isFollowing) // useState regresa dos valores. podemos settear a false aqui (harcoding) para que C.I sea false 
-    isFollowing = state[0]
+    const state = useState(false) // useState regresa dos valores. sin C.I, es decir seteado a false 
+    const isFollowing = state[0]
     const setIsFollowing = state[1]
 
     const handleClick = () => {
