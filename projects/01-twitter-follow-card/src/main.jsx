@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
-const createButton = ({ text }) => {
+const Button = ({ text }) => {
 
   return (
 
@@ -22,8 +22,8 @@ const createButton = ({ text }) => {
 
 root.render(
   <React.Fragment>
-    {createButton({ text: 'button1' })}
-    {createButton({ text: 'button2' })}
-    {createButton({ text: 'button3' })}
+    <Button text='button1' />
+    <Button text='button2' />
+    <Button text='button3' />
   </React.Fragment>,
 )
