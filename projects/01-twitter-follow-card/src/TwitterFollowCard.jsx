@@ -2,7 +2,7 @@ import { email } from "../utils/email"
 import { normalizedText } from "../utils/toUpperCase"
 
 
-export function TwitterFollowCard({ name, username, isFollowing, formatUserName }) {
+export function TwitterFollowCard({ name, username, isFollowing, formatUserName, children }) {
 
     const imgSrc = `https://unavatar.io/${username}`
     const addHash = (username) => `#${username}`
@@ -18,8 +18,8 @@ export function TwitterFollowCard({ name, username, isFollowing, formatUserName 
                 <div className='tw-followCard-info'>
                     <strong>{normalizedText(username)}</strong>
                     <span className='.tw-followCard-infoUserName'>{addHash(username)}</span>
-                    <span className='.tw-followCard-infoUserName'>{email(username)}</span>
-                    <span className='.tw-followCard-infoUserName'>{formatUserName(name)}</span>
+                    <span className='.tw-followCard-infoUserName'>{children}</span>
+
 
                 </div>
             </header>
