@@ -5,7 +5,7 @@ import { useState } from "react"
 
 export function TwitterFollowCard({ name, username = 'unknown', isFollowing, formatUserName, children }) {
 
-    const state = useState(false)
+    const state = useState(isFollowing) // useState regresa dos valores. podemos settear a false aqui (harcoding) para que C.I sea false 
     isFollowing = state[0]
     const setIsFollowing = state[1]
 
