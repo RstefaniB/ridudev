@@ -3,7 +3,8 @@ import { normalizedText } from "../utils/toUpperCase"
 
 
 export function TwitterFollowCard({ name, username = 'unknown', isFollowing, formatUserName, children }) {
-
+    const text = isFollowing ? 'siguiendo' : 'seguir'
+    const buttonClassName = isFollowing ? 'tw-followCard-button is-following' : 'tw-followCard-button'
     const imgSrc = `https://unavatar.io/${username}`
     const addHash = (username) => `#${username}`
     return (
@@ -24,7 +25,7 @@ export function TwitterFollowCard({ name, username = 'unknown', isFollowing, for
                 </div>
             </header>
             <aside>
-                <button className='tw-followCard-button '>seguir</button>
+                <button className={buttonClassName}>{text}</button>
             </aside>
         </article>
 
