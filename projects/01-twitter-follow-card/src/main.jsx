@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { App } from './App'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
@@ -21,9 +22,8 @@ const Button = ({ text }) => {
 
 
 root.render(
-  <React.Fragment>
-    <Button text='button1' />
-    <Button text='button2' />
-    <Button text='button3' />
-  </React.Fragment>,
+  <>
+    <App />
+
+  </>
 )
