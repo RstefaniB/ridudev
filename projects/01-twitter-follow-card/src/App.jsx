@@ -1,8 +1,10 @@
+import './app.css'
+
 export function App() {
     return (
 
         <article>
-            <h1>A quien seguir...</h1>
+
             <header>
                 <img src="https://unavatar.io/rebecaferguson"></img>
                 <div>
@@ -11,7 +13,7 @@ export function App() {
                 </div>
             </header>
             <aside>
-                <button>me button</button>
+                <button>seguir</button>
             </aside>
         </article>
     )
