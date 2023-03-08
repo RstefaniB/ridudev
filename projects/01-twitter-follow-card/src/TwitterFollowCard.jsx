@@ -3,14 +3,25 @@ import { normalizedText } from "../utils/toUpperCase"
 import { useState } from "react"
 
 
-export function TwitterFollowCard({ name, username = 'unknown', formatUserName, children }) {
+export function TwitterFollowCard({ name, username = 'unknown', formatUserName, children, initialIsFollowing, initialFollower }) {
 
-    const state = useState(false) // useState regresa dos valores. sin C.I, es decir seteado a false 
-    const isFollowing = state[0]
-    const setIsFollowing = state[1]
+
+    const [count, setCount] = useState(initialFollower - 1)
+    const [count1, setCount1] = useState(initialFollower + 1)
+    const [isFollowing, setIsFollowing] = useState(initialIsFollowing)
+
 
     const handleClick = () => {
         setIsFollowing(!isFollowing)
+        isFollowing ? setCount(count + 1) : setCount(count - 1)
+    }
+
+    const countUp = () => {
+        setCount(count + 10)
+    }
+
+    const countDown = () => {
+        setCount1(count1 - 100)
     }
 
     const text = isFollowing ? 'siguiendo' : 'seguir'
@@ -36,7 +47,10 @@ export function TwitterFollowCard({ name, username = 'unknown', formatUserName, 
             </header>
             <aside>
                 <button className={buttonClassName} onClick={handleClick}>{text}</button>
+                <button className='tw-followCard-button' onClick={countUp}>{count}</button>
+                <button className='tw-followCard-button' onClick={countDown}>{count1}</button>
             </aside>
+
         </article>
 
 

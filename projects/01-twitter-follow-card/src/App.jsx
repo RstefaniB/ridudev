@@ -3,8 +3,10 @@ import { TwitterFollowCard } from './TwitterFollowCard'
 
 export function App() {
     const formatUserName = (name) => `${name}`
-    const midudev = { username: 'midudev', isFollowing: true }
-    const ridudev = { username: 'ridudev', isFollowing: false }
+    const midudev = { username: 'midudev', initialIsFollowing: true, initialFollower: 4 }
+    const ridudev = { username: 'ridudev', initialIsFollowing: false, initialFollower: 2500 }
+    const tina = { username: 'tina', initialIsFollowing: true, initialFollower: 750 }
+
 
     return (
         <>
@@ -14,6 +16,10 @@ export function App() {
             <TwitterFollowCard {...ridudev}>
                 Recomendacion de seguir
             </TwitterFollowCard>
+            <TwitterFollowCard {...tina}>
+                Recomendacion de seguir
+            </TwitterFollowCard>
+
 
 
         </>
