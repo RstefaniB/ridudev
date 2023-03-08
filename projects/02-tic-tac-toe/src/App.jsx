@@ -2,6 +2,10 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './index.css'
 
+const TURNS = {
+  X: 'x',
+  O: 'o'
+}
 
 const Square = ({ children, index }) => {
   return (
@@ -13,7 +17,9 @@ const Square = ({ children, index }) => {
 
 function App() {
 
-  const [board, setBoard] = useState(['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'])
+  const [board, setBoard] = useState(Array(9).fill(null))
+
+  const [turn, setTurn] = useState(TURNS.X)
 
 
   return (
@@ -24,7 +30,8 @@ function App() {
           board.map((_, index) => {
             return (
               <Square
-                key={index} index={index}>
+                key={index} index={index}
+              >
                 {board[index]}
               </Square>
             )
