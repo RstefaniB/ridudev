@@ -7,9 +7,12 @@ const TURNS = {
   O: 'o'
 }
 
-const Square = ({ children, index }) => {
+const Square = ({ children, index, isSelected }) => {
+
+  const className = `square ${isSelected ? 'is-selected' : ''}`
+
   return (
-    <div className='square'>
+    <div className={className}>
       {children}
     </div>
   )
@@ -38,6 +41,14 @@ function App() {
           })
         }
 
+      </section>
+      <section className='turn'>
+        <Square isSelected={turn == TURNS.X}>
+          {TURNS.X}
+        </Square>
+        <Square isSelected={turn == TURNS.O}>
+          {TURNS.O}
+        </Square>
       </section>
     </main>
 
