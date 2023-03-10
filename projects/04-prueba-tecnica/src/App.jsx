@@ -5,8 +5,6 @@ const CAT_ENDPOINT_IMAGE_URL = 'https://cataas.com'
 
 export function App() {
 
-
-
     const [fact, setFact] = useState()
     const [urlImage, setUrlImage] = useState()
 
@@ -25,6 +23,21 @@ export function App() {
     }
 
     useEffect(refreshFact, [])
+
+    useEffect(() => {
+        if (!fact) return
+        const threeFirstWords = fact.split(' ', 3).join(' ')
+        fetch(`https://cataas.com/cat/says/${threeFirstWords}?size=50&color=red&json=true`)
+            .then(res => res.json())
+            .then(response => {
+                const { url } = response
+
+                console.log(url)
+                setUrlImage(url)
+
+            })
+    }, [fact])
+
 
 
     const handleClicks = () => {
