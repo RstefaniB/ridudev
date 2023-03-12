@@ -7,6 +7,28 @@ function App() {
   const movies = withResults.Search
   const hasMovies = movies?.length > 0
 
+  const renderMovies = () => {
+    return (
+      <ul>
+        {
+          movies.map((movie) => (
+            <li key={movie.imdbID}>
+              <h2>{movie.Title}</h2>
+              <p>{movie.Year}</p>
+              <img src={movie.Poster} alt={movie.Title} />
+            </li>
+          ))
+        }
+      </ul >
+    )
+  }
+
+  const renderNoResutls = () => {
+    return (
+      <p>No hay resultados</p>
+    )
+  }
+
   return (
     <div className='page'>
 
@@ -19,25 +41,9 @@ function App() {
       </header >
 
       <main>
-        {
-          hasMovies ?
-            (
-              <ul>
-                {
-                  movies.map((movie) => (
-                    <li key={movie.imdbID}>
-                      <h2>{movie.Title}</h2>
-                      <p>{movie.Year}</p>
-                      <img src={movie.Poster} alt={movie.Title} />
-                    </li>
-                  ))
-                }
-              </ul>
-            )
-            : (
-              <p>No hay resultados</p>
-            )
-        }
+
+        {hasMovies ? renderMovies() : renderNoResutls()}
+
       </main>
     </div >
   )
