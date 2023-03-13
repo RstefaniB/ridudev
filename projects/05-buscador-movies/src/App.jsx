@@ -1,19 +1,10 @@
-import withResults from './mocks/with-results.json'
-import withoutResults from './mocks/no-results.json'
+import { useMovies } from './hooks/useMovies'
 import './App.css'
-import Movies from './components/Movies'
-
+import MappedMovies from './components/Movies'
 
 function App() {
 
-  const movies = withResults.Search
-
-  const mappedMovies = movies?.map(movie => ({
-    id: movie.imdbID,
-    title: movie.Title,
-    year: movie.Year,
-    poster: movie.Poster
-  }))
+  const { movies: mappedMovies } = useMovies()
 
   return (
     <div className='page'>
@@ -28,7 +19,7 @@ function App() {
 
       <main>
 
-        <Movies movies={mappedMovies} />
+        <MappedMovies movies={mappedMovies} />
 
       </main>
     </div >
