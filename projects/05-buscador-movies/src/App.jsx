@@ -8,10 +8,11 @@ function App() {
   const { movies: mappedMovies } = useMovies()
   const inputRef = useRef()
 
-  const handleClick = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault()
     const inputEl = inputRef.current
     const value = inputEl.value
-    alert(value)
+    console.log(value)
   }
 
   return (
@@ -19,9 +20,9 @@ function App() {
 
       <header>
         <h1>Buscador de peliculas</h1>
-        <form className='form'>
+        <form className='form' onSubmit={handleSubmit}>
           <input ref={inputRef} type='text' placeholder='Star Wars, Benjamin Button' />
-          <button onClick={handleClick} type='submit'>Search</button>
+          <button type='submit'>Search</button>
         </form>
       </header >
 
