@@ -1,33 +1,12 @@
 import withResults from './mocks/with-results.json'
 import withoutResults from './mocks/no-results.json'
 import './App.css'
+import Movies from './components/Movies'
+
 
 function App() {
 
   const movies = withResults.Search
-  const hasMovies = movies?.length > 0
-
-  const renderMovies = () => {
-    return (
-      <ul>
-        {
-          movies.map((movie) => (
-            <li key={movie.imdbID}>
-              <h2>{movie.Title}</h2>
-              <p>{movie.Year}</p>
-              <img src={movie.Poster} alt={movie.Title} />
-            </li>
-          ))
-        }
-      </ul >
-    )
-  }
-
-  const renderNoResutls = () => {
-    return (
-      <p>No hay resultados</p>
-    )
-  }
 
   return (
     <div className='page'>
@@ -42,7 +21,7 @@ function App() {
 
       <main>
 
-        {hasMovies ? renderMovies() : renderNoResutls()}
+        <Movies movies={movies} />
 
       </main>
     </div >
