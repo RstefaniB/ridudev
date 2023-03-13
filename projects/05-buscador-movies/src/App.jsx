@@ -10,8 +10,8 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const { title, releaseYear, country } = Object.fromEntries(new window.FormData(e.target))
-    console.log({ title, releaseYear, country })
+    const fields = Object.fromEntries(new window.FormData(e.target))
+    console.log(fields)
   }
 
   return (
